@@ -1,6 +1,10 @@
 # <img src="https://github.com/tyzen9/tyzen9/blob/main/images/logos/t9_logo.png" height="25"> Tyzen9 - docker-myanonamouse-ip-helper
 If you are a [myanonamouse.net](https://www.myanonamouse.net/) user, then you are likely familiar with their [dynamic seedbox IP](https://www.myanonamouse.net/api/endpoint.php/3/json/dynamicSeedbox.php) concept. 
-This configuration is crutial if your activity runs behind a VPN connection whose IP address can change automatically.
+This configuration is crucial if your activity runs behind a VPN connection whose IP address can change automatically.
+
+> [!NOTE]
+> This [docker image](https://hub.docker.com/repository/docker/tyzen9/myanonamouse-ip-helper/general) is used in my in my experimental Docker stack [docker-pia-servarr](https://github.com/tyzen9/docker-pia-servarr), and keeps the qBittorrent instance reachable even as the PIA IP address changes.
+
 
 I created this image for use with my [docker-pia-servarr](https://github.com/tyzen9/docker-pia-servarr) stack that uses a [Private Internet Access](https://www.privateinternetaccess.com/) (PIA) VPN service but uc can be used with any VPN.
 
