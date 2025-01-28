@@ -1,0 +1,12 @@
+services:
+  mam-ip-helper:
+    image: tyzen9/myanonamouse-ip-helper:latest
+    container_name: myanonamouse-ip-helper
+    environment:
+      - MAM_ID=yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere
+    networks:
+      - test-net
+
+networks:
+  test-net:
+    driver: bridge
