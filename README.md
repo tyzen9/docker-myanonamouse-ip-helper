@@ -11,7 +11,7 @@ I created this image for use with my [docker-servarr-seedbox](https://github.com
 This image is simple, all it does is make a once an hour call to [myanonamouse.net](https://www.myanonamouse.net/) with the cookie assigned to my dynamic seedbox IP (they call a MAM-ID) from the network that the VPN is running on.
 
 ## Supported Architectures
-Simply pulling tyzen9/myanonamouse-ip-helper:latest should retrieve the correct image for your arch. The architectures supported by this image are:
+Simply pulling `tyzen9/myanonamouse-ip-helper:latest` should retrieve the correct image for your arch. The architectures supported by this image are:
 
 | Architecture | Available | Tag |
 | :---   | :--- | :--- |
@@ -46,17 +46,18 @@ services:
 \*required parameter
 
 # Development
-Development guidelines assume you are running on a system connected to Docker Desktop, with `make` installed.
+The development guidelines assume you are running on a system with docker and `make` installed.
 
-To make this docker image, run this command 
-```
-make build
-```
-
-To run the image, use this command
+To run this container, use this command
 ```
 docker run --rm \
     -e MAM_ID='yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere' \
     -e LOG_LEVEL='DEBUG' \
     tyzen9/myanonamouse-ip-helper
+```
+
+## Image Build
+To make this docker image, run this command 
+```
+make build
 ```
