@@ -3,15 +3,25 @@ If you are a [myanonamouse.net](https://www.myanonamouse.net/) user, then you ar
 This configuration is crucial if your activity runs behind a VPN connection whose IP address can change automatically.
 
 > [!NOTE]
-> This [docker image](https://hub.docker.com/repository/docker/tyzen9/myanonamouse-ip-helper/general) is used in my in my experimental Docker stack [docker-pia-servarr](https://github.com/tyzen9/docker-pia-servarr), and keeps the qBittorrent instance reachable even as the PIA IP address changes.
+> This [docker image](https://hub.docker.com/repository/docker/tyzen9/myanonamouse-ip-helper/general) is used in my in my experimental Docker stack [docker-servarr-seedbox](https://github.com/tyzen9/docker-servarr-seedbox), and keeps the qBittorrent instance reachable even as the PIA IP address changes.
 
 
-I created this image for use with my [docker-pia-servarr](https://github.com/tyzen9/docker-pia-servarr) stack that uses a [Private Internet Access](https://www.privateinternetaccess.com/) (PIA) VPN service but uc can be used with any VPN.
+I created this image for use with my [docker-servarr-seedbox](https://github.com/tyzen9/docker-servarr-seedbox) stack that uses a [Private Internet Access](https://www.privateinternetaccess.com/) (PIA) VPN service but it can be used with any VPN.
 
 This image is simple, all it does is make a once an hour call to [myanonamouse.net](https://www.myanonamouse.net/) with the cookie assigned to my dynamic seedbox IP (they call a MAM-ID) from the network that the VPN is running on.
 
+## Supported Architectures
+Simply pulling tyzen9/myanonamouse-ip-helper:latest should retrieve the correct image for your arch, but you can also pull specific arch images via tags. The architectures supported by this image are:
+
+| Architecture | Available | Tag |
+| :---   | :--- | :--- |
+| x86-64 | ✅ | amd64-<version tag> |
+| arm64	 | ✅ | arm64v8-<version tag> |
+
+Specific version tags are available on [Docker Hub](https://hub.docker.com/repository/docker/tyzen9/myanonamouse-ip-helper/tags).
+
 ## Deployment
-This is best deployed using docker compose, and typically in the same stack as the VPN client - see my [docker-pia-servarr](https://github.com/tyzen9/docker-pia-servarr) stack. Here is an example:
+This is best deployed using docker compose, and typically in the same stack as the VPN client - see my [docker-servarr-seedbox](https://github.com/tyzen9/docker-servarr-seedbox) stack. Here is an example:
 
 ```yaml
 services:
