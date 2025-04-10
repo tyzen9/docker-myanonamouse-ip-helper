@@ -1,0 +1,22 @@
+{
+    "name": "MAM Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    // For this project we wont need any mounts
+    // "mounts": [
+    //     "source=${localWorkspaceFolder}/download_target,target=/downloads,type=bind"
+    // ],
+    // Set the environment using the .env file
+    "runArgs": ["--env-file", ".env"],
+    // Make sure these extensions exist in the dev container
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}

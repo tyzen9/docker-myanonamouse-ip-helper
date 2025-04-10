@@ -2,11 +2,6 @@ services:
   mam-ip-helper:
     image: tyzen9/myanonamouse-ip-helper:latest
     container_name: myanonamouse-ip-helper
+    # The environment parameters are pulled in from a local .env file
     environment:
-      - MAM_ID=yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere
-    networks:
-      - test-net
-
-networks:
-  test-net:
-    driver: bridge
+      - MAM_ID=${MAM_ID}
