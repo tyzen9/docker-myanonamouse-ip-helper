@@ -4,4 +4,5 @@ services:
     container_name: myanonamouse-ip-helper
     # The environment parameters are pulled in from a local .env file
     environment:
+      - TZ_ID=${TZ_ID}
       - MAM_ID=${MAM_ID}
