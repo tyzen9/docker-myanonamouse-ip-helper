@@ -43,6 +43,7 @@ services:
 | *MAM_ID | string | "\<mam-id\>" | The 200+ character session cookie string for your active seedbox IP session. [See here](https://www.myanonamouse.net/preferences/index.php?view=security)|
 | UPDATE_INTERVAL | int | 3600 | The number of seconds between updates, defaults to 3600 (1 hour) |
 | LOG_LEVEL | string | "INFO" | The logging level to be used ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'). Defaults to "INFO" |
+
 \*required parameter
 
 # Development
