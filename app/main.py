@@ -2,7 +2,6 @@ import os
 import sys
 import json
 import time
-import datetime
 import logging
 from colorlog import ColoredFormatter
 
