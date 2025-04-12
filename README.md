@@ -46,18 +46,60 @@ services:
 \*required parameter
 
 # Development
-The development guidelines assume you are running on a system with docker and `make` installed.
+This project is designed to be developed with VS code and the [Dev Containers](https://marketplace.visualstudio.com/items/?itemName=ms-vscode-remote.remote-containers) extension. 
 
-To run this container, use this command
+> [!IMPORTANT]
+> In development, a `.env` file is expected. You can copy `sample.env` to make a `.env` file for testing.
+
+To start the project at the resulting dev container command line, issue the following command:
+
 ```
-docker run --rm \
-    -e MAM_ID='yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere-yourmamkeygoeshere' \
-    -e LOG_LEVEL='DEBUG' \
-    tyzen9/myanonamouse-ip-helper
+python3 /usr/src/tyzen9/main.py 
 ```
 
-## Image Build
-To make this docker image, run this command 
+## Development Environment Requirements
+- Docker Engine 
+- Docker Desktop (optional)
+- Make - used to build and publish images
+
+## VS Code
+The following extensions are recommended to be installed in VS Code:
+
+- [Dev Containers](https://marketplace.visualstudio.com/items/?itemName=ms-vscode-remote.remote-containers)
+- [Docker](https://marketplace.visualstudio.com/items/?itemName=ms-azuretools.vscode-docker)
+- [Python](https://marketplace.visualstudio.com/items/?itemName=ms-python.python)
+
+### Open the project in a Docker Dev Container for development using VS Code
+1. Install the Recommended extensions (above):
+2. Ensure Docker Desktop (or another Docker service) is running on your system.
+3. In VS Code, Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P), and Select Dev Containers: `Reopen in Container`
+    - VS Code will build the container based on the `.devcontainer/devcontainer.json` configuration 
+      The first build might take some time, but subsequent openings will be faster.
+7. Develop Inside the Container. 
+    - Once connected, you can use all of VS Code's features (e.g., IntelliSense, debugging) as if working locally.
+
+## Build & Publish
+Update the `Makefile` to contain the appropriate Docker Hub username, application name and version number
+
+```
+DOCKER_USERNAME ?= username
+APPLICATION_NAME ?= application-name
+VERSION ?= 1.0.0
+```
+
+To build images of this container, use this command in the root directory of the project:
+
 ```
 make build
 ```
+
+To publish th built images to to Docker Hub use this command in the root directory of the project:
+
+To build use this command:
+```
+make push
+```
+
+# References
+[Setting up a dockerized Python environment the elegant way](https://towardsdatascience.com/setting-a-dockerized-python-environment-the-elegant-way-f716ef85571d/)
+
